@@ -1,0 +1,16 @@
+services:
+  html:
+    image: caddy
+    container_name: caddy
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - ./conf:/etc/caddy
+      - ./index.html:/srv/index.html
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:
